@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Women First - Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe4ec, #fff1f9);
+      color: #333;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    header {
+      background: linear-gradient(to right, #d81b60, #f06292);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    nav {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2, h3 {
+      color: #d81b60;
+      margin-bottom: 1rem;
+    }
+
+    address {
+      font-style: normal;
+      line-height: 1.8;
+    }
+
+    address a {
+      color: #d81b60;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin: 1rem 0 0.5rem;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    textarea {
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #f8bbd0;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: #d81b60;
+      outline: none;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem;
+      border: none;
+      background-color: #d81b60;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ad1457;
+    }
+
+    a {
+      color: #d81b60;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      color: #880e4f;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      main {
+        padding: 1.5rem;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Women First</h1>
+    <nav>
+      <!-- Replace this with real links as needed -->
+      <a href="index.html" style="color: white; text-decoration: underline;">Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Contact Us</h2>
+      <p>Get in touch with the Ministry of Women & Child Development</p>
+      <address>
+        Ministry Office,<br>
+        Shastri Bhawan, New Delhi - 110001<br>
+        Email: <a href="mailto:womenfirst@gov.in">womenfirst@gov.in</a>
+      </address>
+    </section>
+
+    <section>
+      <h3>Send Us a Message</h3>
+      <form action="#" method="post">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <p><a href="index.html">← Back to Home</a></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Government of India | Women First Initiative</p>
+  </footer>
+
+</body>
+</html>
