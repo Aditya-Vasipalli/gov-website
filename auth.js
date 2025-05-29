@@ -38,7 +38,6 @@ $(document).ready(function() {
 
   // Profile and session UI logic for index.html
   $(document).ready(function() {
-    // Only handle login/logout UI for the header, do not inject user details/profile into the homepage header.
     function renderProfile() {
       const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
       if (user) {
