@@ -1,7 +1,3 @@
-// complaint.js
-// Handles the Complaint form submission using jQuery and stores data in localStorage as a demo.
-// Also provides a way to download all complaints as an Excel file (CSV format).
-
 $(document).ready(function() {
   $('#complaintForm').on('submit', function(e) {
     e.preventDefault();
