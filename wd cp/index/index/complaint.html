@@ -143,5 +143,22 @@
     <p>&copy; 2025 Government of India | Women First Initiative</p>
   </footer>
 
+  <script>
+  // Simple form validation using JS
+  document.querySelector('form').addEventListener('submit', function(e) {
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const details = document.getElementById('details');
+    let valid = true;
+    if (!name.value.trim()) { valid = false; name.style.borderColor = 'red'; }
+    if (!email.value.match(/^[^@]+@[^@]+\.[^@]+$/)) { valid = false; email.style.borderColor = 'red'; }
+    if (!details.value.trim()) { valid = false; details.style.borderColor = 'red'; }
+    if (!valid) {
+      alert('Please fill all fields correctly.');
+      e.preventDefault();
+    }
+  });
+  </script>
+
 </body>
 </html>

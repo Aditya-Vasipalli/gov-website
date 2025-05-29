@@ -104,11 +104,7 @@
     <section>
       <h2>Important Helpline Numbers</h2>
       <ul>
-        <li><strong>Women Helpline (All India):</strong> 1091</li>
-        <li><strong>Police Emergency:</strong> 100</li>
-        <li><strong>Legal Aid:</strong> 15100</li>
-        <li><strong>Childline:</strong> 1098</li>
-        <!-- More numbers can be added here -->
+        <!-- Emergency contacts will be loaded here -->
       </ul>
     </section>
 
@@ -118,6 +114,21 @@
   <footer>
     <p>&copy; 2025 Government of India | Women First Initiative</p>
   </footer>
+
+  <script>
+// Load contacts from JSON and display
+fetch('contacts.json')
+  .then(res => res.json())
+  .then(data => {
+    const ul = document.querySelector('ul');
+    ul.innerHTML = '';
+    data.forEach(c => {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${c.name}:</strong> ${c.number}`;
+      ul.appendChild(li);
+    });
+  });
+</script>
 
 </body>
 </html>
