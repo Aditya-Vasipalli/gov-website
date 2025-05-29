@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Empowerment Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Empowerment Blog: Inspiring stories and legal rights awareness for Indian women." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
+      color: #333;
+    }
+
+    header {
+      background-color: #c2185b;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    main {
+      padding: 2rem 10%;
+    }
+
+    article {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    article:hover {
+      transform: translateY(-5px);
+    }
+
+    article h2 {
+      color: #ad1457;
+      margin-top: 0;
+    }
+
+    article img, article video {
+      border-radius: 10px;
+      margin-top: 1rem;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    article p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+
+    a {
+      display: inline-block;
+      margin: 2rem 10%;
+      color: #c2185b;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #880e4f;
+      text-decoration: underline;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+      background: #fff;
+      color: #c2185b;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+
+    .skip-link:focus {
+      left: 16px;
+      top: 16px;
+      width: auto;
+      height: auto;
+      outline: 2px solid #c2185b;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+      }
+
+      article img, article video {
+        max-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <h1>Inspiring Stories & Rights Awareness</h1>
+  </header>
+
+  <main id="main-content">
+    <!-- Article 1 -->
+    <article>
+      <h2>Know Your Legal Rights</h2>
+      <img src="rights.jpg" alt="Legal Rights Image" width="100%" />
+      <p>Indian women are protected by several legal provisions such as the Protection of Women from Domestic Violence Act, Equal Remuneration Act, Maternity Benefit Act, and more. Understanding these rights is key to empowerment.</p>
+      <video width="100%" controls title="Legal Rights Video" tabindex="0">
+        <source src="media/legal-rights.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </article>
+
+    <!-- Article 2 -->
+    <article>
+      <h2>Empowered Women of India</h2>
+      <img src="images/success.jpg" alt="Success Stories" width="100%" />
+      <p>From rural leaders who sparked community change to CEOs redefining the tech world, these stories are powerful reminders of resilience, ambition, and the strength of Indian women.</p>
+    </article>
+  </main>
+
+  <a href="index.html">← Back to Home</a>
+
+</body>
+</html>
