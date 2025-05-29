@@ -1,7 +1,3 @@
-// auth.js
-// Handles registration and login using jQuery and localStorage for demo purposes.
-// In a real project, use a backend for secure authentication.
-
 $(document).ready(function() {
   // Registration
   $('#signupForm').on('submit', function(e) {

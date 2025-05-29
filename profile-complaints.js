@@ -1,5 +1,3 @@
-// profile-complaints.js
-// Shows the logged-in user's complaints in the profile page (from localStorage, demo only)
 $(document).ready(function() {
   const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
   if (!user) return;

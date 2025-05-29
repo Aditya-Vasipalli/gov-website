@@ -1,7 +1,3 @@
-// contact.js
-// Handles the Contact Us form submission using jQuery and stores data in localStorage as a demo.
-// In a real project, you would send this to a backend server via AJAX.
-
 $(document).ready(function() {
   $('#contactForm').on('submit', function(e) {
     e.preventDefault();
