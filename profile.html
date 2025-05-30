@@ -6,147 +6,52 @@
   <title>User Profile - Women First</title>
   <meta name="description" content="User profile page for Women First portal. View and update your details." />
   <link rel="icon" type="image/png" href="favicon.png" />
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #fff1f9, #ffe4ec);
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: linear-gradient(to right, #d50060, #ff4081);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem 1rem 1rem;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem;
-      background-color: #ffffffcc;
-      backdrop-filter: blur(6px);
-      padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    nav a {
-      text-decoration: none;
-      color: #d81b60;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #880e4f;
-    }
-    main {
-      max-width: 500px;
-      margin: 2rem auto;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      padding: 2rem;
-      text-align: center;
-    }
-    h2 {
-      color: #ad1457;
-      margin-bottom: 1.5rem;
-    }
-    .profile-detail {
-      font-size: 1.1rem;
-      margin-bottom: 1.2rem;
-    }
-    #changePwdForm {
-      margin-top: 1.5rem;
-      display: none;
-    }
-    #changePwdForm input {
-      padding: 0.6rem 1rem;
-      border-radius: 10px;
-      border: 1px solid #f8bbd0;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      width: 80%;
-    }
-    #changePwdForm button {
-      padding: 0.6rem 1.5rem;
-      border-radius: 30px;
-      border: none;
-      background: #d50060;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    #changePwdForm button:hover {
-      background: #ad1457;
-    }
-    #logoutBtn {
-      margin-top: 2rem;
-      padding: 0.6rem 1.5rem;
-      border-radius: 30px;
-      border: none;
-      background: #f8bbd0;
-      color: #880e4f;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    #logoutBtn:hover {
-      background: #f06292;
-    }
-    #yourComplaints {
-      text-align: left;
-      margin-top: 1.5rem;
-    }
-    .complaint-item {
-      background: #f8bbd0;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .complaint-item h3 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.2rem;
-      color: #880e4f;
-    }
-    .complaint-item p {
-      margin: 0;
-      color: #333;
-    }
-  </style>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
+<body class="bg-light">
+  <header class="bg-danger bg-gradient text-white text-center py-4 mb-0">
     <h1>User Profile</h1>
   </header>
-  <nav aria-label="Main Navigation">
-    <a href="index.html">Home</a>
-    <a href="policies.html">Policies</a>
-    <a href="complaint.html">Complaint</a>
-    <a href="emergency.html">Emergency</a>
-    <a href="blog.html">Blog</a>
-    <a href="freq_ask_que.html">FAQs</a>
-    <a href="contact.html">Contact</a>
-    <a href="profile.html">Profile</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+    <div class="container justify-content-center">
+      <ul class="navbar-nav flex-row flex-wrap gap-3">
+        <li class="nav-item"><a class="nav-link fw-semibold text-danger" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-danger" href="policies.html">Policies</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-danger" href="complaint.html">Complaint</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-danger" href="emergency.html">Emergency</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-danger" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-danger" href="freq_ask_que.html">FAQs</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-danger" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-danger" href="profile.html">Profile</a></li>
+      </ul>
+    </div>
   </nav>
-  <main>
-    <h2>Your Details</h2>
-    <div class="profile-detail"><strong>Name:</strong> <span id="profileName"></span></div>
-    <div class="profile-detail"><strong>Email:</strong> <span id="profileEmail"></span></div>
-    <button id="showChangePwd">Change Password</button>
-    <form id="changePwdForm">
-      <input type="password" id="newPwd" placeholder="New Password" required />
-      <button type="submit">Update Password</button>
-    </form>
-    <button id="logoutBtn">Logout</button>
-    <hr style="margin:2rem 0;">
-    <h2>Your Complaints</h2>
-    <div id="yourComplaints"></div>
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg rounded-4 p-4">
+          <h2 class="text-center text-danger mb-4">Your Details</h2>
+          <div class="mb-3"><strong>Name:</strong> <span id="profileName"></span></div>
+          <div class="mb-3"><strong>Email:</strong> <span id="profileEmail"></span></div>
+          <button id="showChangePwd" class="btn btn-outline-danger mb-3">Change Password</button>
+          <form id="changePwdForm" class="mb-3" style="display:none;">
+            <input type="password" id="newPwd" class="form-control mb-2" placeholder="New Password" required />
+            <button type="submit" class="btn btn-danger">Update Password</button>
+          </form>
+          <button id="logoutBtn" class="btn btn-light border-danger text-danger mb-4">Logout</button>
+          <hr>
+          <h2 class="text-center text-danger mb-3">Your Complaints</h2>
+          <div id="yourComplaints"></div>
+        </div>
+      </div>
+    </div>
   </main>
+  <footer class="bg-light text-center py-4 mt-5 border-top">
+    <p class="mb-0">&copy; 2025 Government of India | Women First Initiative</p>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="auth.js"></script>
   <script src="profile-complaints.js"></script>
   <script>
