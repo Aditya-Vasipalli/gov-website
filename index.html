@@ -27,7 +27,6 @@
       color: white;
       text-align: center;
       padding: 3rem 1rem;
-      position: relative;
     }
 
     header h1 {
@@ -81,10 +80,12 @@
     }
 
     img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      animation: zoomIn 1.5s ease-out;
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 20px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     section {
@@ -117,7 +118,10 @@
     }
 
     video {
-      width: 100%;
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
@@ -131,28 +135,21 @@
       font-size: 0.95rem;
     }
 
-    /* Animations */
     @keyframes fadeInDown {
-      0% {opacity: 0; transform: translateY(-30px);}
-      100% {opacity: 1; transform: translateY(0);}
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeInUp {
-      0% {opacity: 0; transform: translateY(30px);}
-      100% {opacity: 1; transform: translateY(0);}
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
-      0% {opacity: 0;}
-      100% {opacity: 1;}
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
-    @keyframes zoomIn {
-      0% {opacity: 0; transform: scale(0.95);}
-      100% {opacity: 1; transform: scale(1);}
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
       header h1 {
         font-size: 2rem;
@@ -193,11 +190,12 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
     <h1>Welcome to Women First</h1>
     <a href="login.html" id="loginBtn">Login / Sign Up</a>
     <p>A government initiative for women's safety, rights & empowerment.</p>
-    <img src="banner.jpg" alt="Women's Empowerment Banner" />
+    <img src="banner.jpg" alt="Women's Empowerment Banner" onerror="this.src='fallback.jpg';" />
   </header>
 
   <nav aria-label="Main Navigation">
@@ -215,7 +213,7 @@
   <main id="main-content">
     <section>
       <h2>Introduction Video</h2>
-      <video controls tabindex="0" title="Introduction to Women First">
+      <video controls title="Introduction to Women First" onerror="console.error('Video failed to load');">
         <source src="media/intro-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -235,14 +233,24 @@
   <footer>
     <p>&copy; 2025 Government of India | Women First Initiative</p>
   </footer>
+
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="auth.js"></script>
   <script>
-    $(document).ready(function() {
-      var user = JSON.parse(localStorage.getItem('currentUser') || 'null');
+    $(document).ready(function () {
+      const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
       if (!user || user.email !== 'admin@womenfirst.in') {
         $("nav a[href='admin.html']").hide();
       }
+
+      // Debug for image/video loading
+      $("img").on("error", function () {
+        console.error("Image not found:", $(this).attr("src"));
+      });
+
+      $("video").on("error", function () {
+        console.error("Video not found or failed to load.");
+      });
     });
   </script>
 </body>
