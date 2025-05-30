@@ -8,7 +8,7 @@ $(document).ready(function() {
       alert('Please fill in all required fields.');
       return;
     }
-    // Store in localStorage (for demo purposes)
+    // Store in localStorage 
     let complaints = JSON.parse(localStorage.getItem('complaints') || '[]');
     complaints.push({ name, email, details, date: new Date().toISOString() });
     localStorage.setItem('complaints', JSON.stringify(complaints));
@@ -25,7 +25,6 @@ $(document).ready(function() {
     }
     let csv = 'Name,Email,Details,Date\n';
     complaints.forEach(c => {
-      // Escape commas and quotes
       const row = [c.name, c.email, c.details, c.date].map(x => '"' + (x || '').replace(/"/g, '""') + '"').join(',');
       csv += row + '\n';
     });
