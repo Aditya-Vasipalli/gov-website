@@ -25,7 +25,16 @@ $(document).ready(function() {
     e.preventDefault();
     const email = $('#email').val().trim().toLowerCase();
     const password = $('#password').val();
+
+    // Ensure hardcoded admin account exists before login check
     let users = JSON.parse(localStorage.getItem('users') || '{}');
+    if (!users['admin@womenfirst.in']) {
+      users['admin@womenfirst.in'] = { name: 'Admin', password: 'admin123', isAdmin: true };
+      localStorage.setItem('users', JSON.stringify(users));
+    }
+    // Reload users after possible admin creation
+    users = JSON.parse(localStorage.getItem('users') || '{}');
+
     if (!users[email] || users[email].password !== password) {
       alert('Invalid email or password.');
       return;
@@ -38,6 +47,7 @@ $(document).ready(function() {
 
   // Profile and session UI logic for index.html
   $(document).ready(function() {
+    // Only handle login/logout UI for the header, do not inject user details/profile into the homepage header.
     function renderProfile() {
       const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
       if (user) {
