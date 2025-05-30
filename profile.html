@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile - Women First</title>
+  <meta name="description" content="User profile page for Women First portal. View and update your details." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fff1f9, #ffe4ec);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(to right, #d50060, #ff4081);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      background-color: #ffffffcc;
+      backdrop-filter: blur(6px);
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    nav a {
+      text-decoration: none;
+      color: #d81b60;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #880e4f;
+    }
+    main {
+      max-width: 500px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      padding: 2rem;
+      text-align: center;
+    }
+    h2 {
+      color: #ad1457;
+      margin-bottom: 1.5rem;
+    }
+    .profile-detail {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+    #changePwdForm {
+      margin-top: 1.5rem;
+      display: none;
+    }
+    #changePwdForm input {
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      border: 1px solid #f8bbd0;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      width: 80%;
+    }
+    #changePwdForm button {
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      border: none;
+      background: #d50060;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #changePwdForm button:hover {
+      background: #ad1457;
+    }
+    #logoutBtn {
+      margin-top: 2rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      border: none;
+      background: #f8bbd0;
+      color: #880e4f;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #logoutBtn:hover {
+      background: #f06292;
+    }
+    #yourComplaints {
+      text-align: left;
+      margin-top: 1.5rem;
+    }
+    .complaint-item {
+      background: #f8bbd0;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .complaint-item h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.2rem;
+      color: #880e4f;
+    }
+    .complaint-item p {
+      margin: 0;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>User Profile</h1>
+  </header>
+  <nav aria-label="Main Navigation">
+    <a href="index.html">Home</a>
+    <a href="policies.html">Policies</a>
+    <a href="complaint.html">Complaint</a>
+    <a href="emergency.html">Emergency</a>
+    <a href="blog.html">Blog</a>
+    <a href="freq_ask_que.html">FAQs</a>
+    <a href="contact.html">Contact</a>
+    <a href="profile.html">Profile</a>
+  </nav>
+  <main>
+    <h2>Your Details</h2>
+    <div class="profile-detail"><strong>Name:</strong> <span id="profileName"></span></div>
+    <div class="profile-detail"><strong>Email:</strong> <span id="profileEmail"></span></div>
+    <button id="showChangePwd">Change Password</button>
+    <form id="changePwdForm">
+      <input type="password" id="newPwd" placeholder="New Password" required />
+      <button type="submit">Update Password</button>
+    </form>
+    <button id="logoutBtn">Logout</button>
+    <hr style="margin:2rem 0;">
+    <h2>Your Complaints</h2>
+    <div id="yourComplaints"></div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="auth.js"></script>
+  <script src="profile-complaints.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Show user details
+      const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
+      if (!user) {
+        alert('You must be logged in to view your profile.');
+        window.location.href = 'login.html';
+        return;
+      }
+      $('#profileName').text(user.name);
+      $('#profileEmail').text(user.email);
+      // Show/hide change password form
+      $('#showChangePwd').on('click', function() {
+        $('#changePwdForm').toggle();
+      });
+      // Change password logic (reuse from auth.js)
+      $('#changePwdForm').on('submit', function(e) {
+        e.preventDefault();
+        const newPwd = $('#newPwd').val();
+        if (!newPwd) {
+          alert('Please enter a new password.');
+          return;
+        }
+        let users = JSON.parse(localStorage.getItem('users') || '{}');
+        if (users[user.email]) {
+          users[user.email].password = newPwd;
+          localStorage.setItem('users', JSON.stringify(users));
+          alert('Password updated successfully!');
+          $('#changePwdForm').hide();
+          $('#newPwd').val('');
+        }
+      });
+      // Logout logic
+      $('#logoutBtn').on('click', function() {
+        localStorage.removeItem('currentUser');
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+</html>
