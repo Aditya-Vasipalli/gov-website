@@ -14,7 +14,7 @@ To view the website locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/aroraanushri/gov-website.git
+   git clone https://github.com/aditya-vasipalli/gov-website.git
 
 2. Navigate to the project directory:
    cd gov-website
