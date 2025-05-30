@@ -83,6 +83,7 @@
       }
     }
   </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
@@ -112,5 +113,18 @@
 
   <a href="index.html">← Back to Home</a>
 
+  <script>
+  $(function() {
+    // Animate articles on hover
+    $('article').hover(
+      function() { $(this).stop().animate({backgroundColor: "#ffe4ec"}, 300); },
+      function() { $(this).stop().animate({backgroundColor: "#fff"}, 300); }
+    );
+    // Click to toggle details
+    $('article h2').click(function() {
+      $(this).siblings('p, img, video').slideToggle();
+    });
+  });
+  </script>
 </body>
 </html>
