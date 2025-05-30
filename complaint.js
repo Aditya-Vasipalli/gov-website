@@ -16,26 +16,26 @@ $(document).ready(function() {
     alert('Your complaint has been submitted. Thank you!');
   });
 
-  // Download as Excel (CSV)
-  $('#downloadComplaints').on('click', function() {
-    let complaints = JSON.parse(localStorage.getItem('complaints') || '[]');
-    if (complaints.length === 0) {
-      alert('No complaints to download.');
-      return;
-    }
-    let csv = 'Name,Email,Details,Date\n';
-    complaints.forEach(c => {
-      const row = [c.name, c.email, c.details, c.date].map(x => '"' + (x || '').replace(/"/g, '""') + '"').join(',');
-      csv += row + '\n';
-    });
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'complaints.csv';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  });
+  // // Download as Excel (CSV)
+  // $('#downloadComplaints').on('click', function() {
+  //   let complaints = JSON.parse(localStorage.getItem('complaints') || '[]');
+  //   if (complaints.length === 0) {
+  //     alert('No complaints to download.');
+  //     return;
+  //   }
+  //   let csv = 'Name,Email,Details,Date\n';
+  //   complaints.forEach(c => {
+  //     const row = [c.name, c.email, c.details, c.date].map(x => '"' + (x || '').replace(/"/g, '""') + '"').join(',');
+  //     csv += row + '\n';
+  //   });
+  //   const blob = new Blob([csv], { type: 'text/csv' });
+  //   const url = URL.createObjectURL(blob);
+  //   const a = document.createElement('a');
+  //   a.href = url;
+  //   a.download = 'complaints.csv';
+  //   document.body.appendChild(a);
+  //   a.click();
+  //   document.body.removeChild(a);
+  //   URL.revokeObjectURL(url);
+  // });
 });
